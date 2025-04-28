@@ -1,0 +1,48 @@
+import '../css/style.css'
+import javascriptLogo from '../javascript.svg'
+import viteLogo from '/vite.svg'
+import { setupCounter } from './counter.js'
+
+document.querySelector('#app').innerHTML = `
+  <div>
+    <a href="https://vitejs.dev" target="_blank">
+      <img src="${viteLogo}" class="logo" alt="Vite logo" />
+    </a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
+    </a>
+    <h1>Hello Vite!</h1>
+    <div class="card">
+      <button id="counter" type="button"></button>
+    </div>
+    <p class="read-the-docs">
+      Click on the Vite logo to learn more
+    </p>
+  </div>
+`
+
+setupCounter(document.querySelector('#counter'))
+
+function createRipple(event) {
+  const button = event.currentTarget;
+  
+  // Создаем элемент волны
+  const circle = document.createElement('span');
+  const diameter = Math.max(button.clientWidth, button.clientHeight);
+  const radius = diameter / 2;
+  
+  // Позиционируем относительно кнопки
+  const rect = button.getBoundingClientRect();
+  circle.style.width = circle.style.height = `${diameter}px`;
+  circle.style.left = `${event.clientX - rect.left - radius}px`;
+  circle.style.top = `${event.clientY - rect.top - radius}px`;
+  circle.classList.add('ripple');
+  
+  // Удаляем предыдущие волны
+  const existingRipples = button.querySelectorAll('.ripple');
+  existingRipples.forEach(ripple => ripple.remove());
+  
+  // Добавляем волну и автоматически удаляем после анимации
+  button.appendChild(circle);
+  circle.addEventListener('animationend', () => circle.remove());
+}
