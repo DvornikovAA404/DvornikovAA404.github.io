@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #050505; /* Ещё темнее фон */
+    background-color: #050505;
     color: #fff;
     margin: 0;
     padding: 20px;
@@ -24,7 +24,7 @@ body {
 .photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Изменено с cover на contain, чтобы вся картинка была видна */
     border: 1px solid #fff;
 }
 
@@ -41,7 +41,7 @@ body {
 }
 
 .personal-info p {
-    margin: 8px 0; /* Увеличил отступы */
+    margin: 8px 0;
     max-width: 100%;
     word-wrap: break-word;
 }
@@ -87,14 +87,15 @@ body {
 
 [contenteditable="true"] {
     display: inline-block;
-    min-width: 250px; /* Ещё больше ширины для читаемости */
-    background-color: #222; /* Более контрастный фон */
-    border: 2px solid #666; /* Более заметная граница */
-    border-radius: 6px; /* Более скругленные углы */
-    padding: 8px; /* Больше отступов внутри */
+    min-width: 250px;
+    background-color: #222;
+    border: none; /* Убрал границу */
+    border-bottom: 2px solid #666; /* Подчеркивание */
+    border-radius: 0; /* Убрал скругление, чтобы подчерк был четким */
+    padding: 8px;
     outline: none;
     color: #fff;
-    font-size: 16px; /* Увеличил шрифт */
+    font-size: 16px;
     transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -104,7 +105,7 @@ body {
 }
 
 [contenteditable="true"]:focus {
-    border-color: #999; /* Более яркая граница при фокусе */
+    border-bottom-color: #999; /* Подсветка подчеркивания при фокусе */
     background-color: #333;
 }
 
