@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-    max-width: 1000px; /* Увеличена ширина с 800px до 1000px */
+    max-width: 800px; /* Увеличена ширина с 800px до 1000px */
     margin: 0 auto;
 }
 
