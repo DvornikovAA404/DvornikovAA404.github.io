@@ -1,80 +1,82 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Резюме</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js "></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме</title>
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <h1 contenteditable="true"></h1>
+            <p contenteditable="true"></p>
+        </div>
 
-<div class="resume-container">
-  <div class="header">
-    <!-- Поле для фото -->
-    <label class="photo-box">
-      <img id="previewPhoto" alt="Фото профиля" />
-      <span class="photo-placeholder">+</span>
-      <input type="file" accept="image/*" onchange="previewImage(event)" />
-    </label>
+        <div class="personal-info">
+            <div class="info">
+                <p><strong>Мобильный телефон:</strong> <span contenteditable="true"></span></p>
+                <p><strong>Эл. почта:</strong> <span contenteditable="true"></span></p>
+                <p><strong>Возраст:</strong> <span contenteditable="true"></span></p>
+                <p><strong>Проживание:</strong> <span contenteditable="true"></span></p>
+                <p><strong>Зарплатные ожидания:</strong> <span contenteditable="true"></span></p>
+                <p><strong>Гражданство:</strong> <span contenteditable="true"></span></p>
+                <p><strong>Языки:</strong> <span contenteditable="true"></span></p>
+            </div>
+            <div class="photo">
+                <img id="profilePhoto" src="" alt="Фото">
+                <input type="file" id="photoUpload" accept="image/*">
+            </div>
+        </div>
 
-    <!-- Заголовок -->
-    <div class="resume-title">РЕЗЮМЕ</div>
-  </div>
+        <div class="section">
+            <h2>Образование</h2>
+            <p contenteditable="true"></p>
+        </div>
 
-  <!-- Поля резюме -->
-  <div class="form">
-    <div class="info-group">
-      <label for="name">ФИО:</label>
-      <input type="text" id="name" value="Иван Иванов">
+        <div class="section">
+            <h2>Опыт работы</h2>
+            <div class="job">
+                <p><strong contenteditable="true"></strong></p>
+                <p contenteditable="true"></p>
+                <p contenteditable="true"></p>
+                <ul>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                </ul>
+            </div>
+            <div class="job">
+                <p><strong contenteditable="true"></strong></p>
+                <p contenteditable="true"></p>
+                <p contenteditable="true"></p>
+                <ul>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                    <li contenteditable="true"></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ключевые навыки</h2>
+            <ul>
+                <li contenteditable="true"></li>
+                <li contenteditable="true"></li>
+                <li contenteditable="true"></li>
+                <li contenteditable="true"></li>
+            </ul>
+        </div>
     </div>
-
-    <div class="info-group">
-      <label for="phone">Номер телефона:</label>
-      <input type="text" id="phone" value="+7 (123) 456-78-90">
-    </div>
-
-    <div class="info-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" value="ivan@example.com">
-    </div>
-
-    <div class="info-group">
-      <label for="city">Город:</label>
-      <input type="text" id="city" value="Москва">
-    </div>
-
-    <div class="info-group">
-      <label for="about">О себе:</label>
-      <textarea id="about" rows="4">Краткая информация о себе...</textarea>
-    </div>
-
-    <button class="button" onclick="generatePDF()">Сохранить как PDF</button>
-  </div>
-</div>
-
-<script>
-  function previewImage(event) {
-    const file = event.target.files[0];
-    const photo = document.getElementById('previewPhoto');
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        photo.src = e.target.result;
-        photo.style.display = 'block';
-      };
-      reader.readAsDataURL(file);
-    }
-  }
-
-  function generatePDF() {
-    const element = document.querySelector('.resume-container');
-    html2pdf()
-      .from(element)
-      .save();
-  }
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
