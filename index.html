@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Резюме</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1 contenteditable="true"></h1>
-            <p contenteditable="true"></p>
+        <div class="photo">
+            <img id="profilePhoto" src="" alt="Фото">
+            <input type="file" id="photoUpload" accept="image/*">
         </div>
-
-        <div class="personal-info">
-            <div class="info">
+        <div class="content">
+            <div class="personal-info">
                 <p><strong>Мобильный телефон:</strong> <span contenteditable="true"></span></p>
                 <p><strong>Эл. почта:</strong> <span contenteditable="true"></span></p>
                 <p><strong>Возраст:</strong> <span contenteditable="true"></span></p>
@@ -23,58 +22,23 @@
                 <p><strong>Гражданство:</strong> <span contenteditable="true"></span></p>
                 <p><strong>Языки:</strong> <span contenteditable="true"></span></p>
             </div>
-            <div class="photo">
-                <img id="profilePhoto" src="" alt="Фото">
-                <input type="file" id="photoUpload" accept="image/*">
+            <div class="section">
+                <h2>Образование</h2>
+                <p contenteditable="true"></p>
             </div>
-        </div>
-
-        <div class="section">
-            <h2>Образование</h2>
-            <p contenteditable="true"></p>
-        </div>
-
-        <div class="section">
-            <h2>Опыт работы</h2>
-            <div class="job">
-                <p><strong contenteditable="true"></strong></p>
-                <p contenteditable="true"></p>
-                <p contenteditable="true"></p>
-                <ul>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                </ul>
+            <div class="section">
+                <h2>Опыт работы</h2>
+                <div class="job">
+                    <p><strong contenteditable="true"></strong></p>
+                    <p contenteditable="true"></p>
+                    <p contenteditable="true"></p>
+                    <ul>
+                        <li contenteditable="true"></li>
+                        <li contenteditable="true"></li>
+                        <li contenteditable="true"></li>
+                    </ul>
+                </div>
             </div>
-            <div class="job">
-                <p><strong contenteditable="true"></strong></p>
-                <p contenteditable="true"></p>
-                <p contenteditable="true"></p>
-                <ul>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                    <li contenteditable="true"></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Ключевые навыки</h2>
-            <ul>
-                <li contenteditable="true"></li>
-                <li contenteditable="true"></li>
-                <li contenteditable="true"></li>
-                <li contenteditable="true"></li>
-            </ul>
         </div>
     </div>
     <script src="script.js"></script>
