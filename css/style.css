@@ -146,3 +146,72 @@ button:focus-visible {
   text-decoration-color: transparent;
   border-bottom: 1px solid black;
 }
+
+.header-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.photo-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.photo-label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #646cff;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.photo-label:hover {
+  border-color: #a5a5ff;
+}
+
+.photo-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  color: #646cff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.photo-label:hover .photo-overlay {
+  opacity: 1;
+}
+
+.resume-title {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #646cff;
+  margin: 0;
+}
+
+.info-section {
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.info-section h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
