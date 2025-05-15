@@ -1,55 +1,80 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Резюме</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js "></script>
-  </head>
-  <body>
-    <div id="app">
-      <!-- Контейнер для фото и заголовка -->
-      <div class="header-section">
-        <div class="photo-container">
-          <input type="file" id="photoInput" accept="image/*" hidden onchange="previewImage(event)">
-          <label for="photoInput" class="photo-label">
-            <img id="profilePhoto" src="" alt="Фото профиля" class="photo-preview" />
-            <span class="photo-overlay">+</span>
-          </label>
-        </div>
-        <h1 class="resume-title">РЕЗЮМЕ</h1>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Резюме</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js "></script>
+</head>
+<body>
 
-      <!-- Информация о пользователе -->
-      <div class="info-section">
-        <h2 contenteditable="true" data-key="name">Иван Иванов</h2>
-        <p contenteditable="true" data-key="phone">Телефон: +7 (123) 456-78-90</p>
-        <p contenteditable="true" data-key="email">Email: ivan@example.com</p>
-        <p contenteditable="true" data-key="address">Адрес: Москва, Россия</p>
-        <p contenteditable="true" data-key="about">Кратко обо мне: ...</p>
-      </div>
+<div class="resume-container">
+  <div class="header">
+    <!-- Поле для фото -->
+    <label class="photo-box">
+      <img id="previewPhoto" alt="Фото профиля" />
+      <span class="photo-placeholder">+</span>
+      <input type="file" accept="image/*" onchange="previewImage(event)" />
+    </label>
 
-      <!-- Кнопка генерации PDF -->
-      <button id="generateBtn" class="button" onclick="createRipple()">Сохранить как PDF</button>
+    <!-- Заголовок -->
+    <div class="resume-title">РЕЗЮМЕ</div>
+  </div>
+
+  <!-- Поля резюме -->
+  <div class="form">
+    <div class="info-group">
+      <label for="name">ФИО:</label>
+      <input type="text" id="name" value="Иван Иванов">
     </div>
 
-    <script src="./js/script.js"></script>
-    <script src="./js/mw.js"></script>
-    <script type="module" src="./js/main.js"></script>
+    <div class="info-group">
+      <label for="phone">Номер телефона:</label>
+      <input type="text" id="phone" value="+7 (123) 456-78-90">
+    </div>
 
-    <script>
-      function previewImage(event) {
-        const file = event.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            document.getElementById('profilePhoto').src = e.target.result;
-          };
-          reader.readAsDataURL(file);
-        }
-      }
-    </script>
-  </body>
+    <div class="info-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" value="ivan@example.com">
+    </div>
+
+    <div class="info-group">
+      <label for="city">Город:</label>
+      <input type="text" id="city" value="Москва">
+    </div>
+
+    <div class="info-group">
+      <label for="about">О себе:</label>
+      <textarea id="about" rows="4">Краткая информация о себе...</textarea>
+    </div>
+
+    <button class="button" onclick="generatePDF()">Сохранить как PDF</button>
+  </div>
+</div>
+
+<script>
+  function previewImage(event) {
+    const file = event.target.files[0];
+    const photo = document.getElementById('previewPhoto');
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        photo.src = e.target.result;
+        photo.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  function generatePDF() {
+    const element = document.querySelector('.resume-container');
+    html2pdf()
+      .from(element)
+      .save();
+  }
+</script>
+
+</body>
 </html>
