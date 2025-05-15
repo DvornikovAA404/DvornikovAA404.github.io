@@ -1,63 +1,43 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    background-color: #1a1a1a;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
     line-height: 1.6;
 }
 
 .container {
-    max-width: 800px; /* Увеличена ширина с 800px до 1000px */
+    display: flex;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-.header {
-    text-align: center;
-    border-bottom: 2px solid black;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.header p {
-    margin: 5px 0;
-    font-size: 16px;
-}
-
-.personal-info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.personal-info .info {
-    flex: 1;
-}
-
-.personal-info .info p {
-    margin: 5px 0;
-}
-
-.personal-info .photo {
+.photo {
     width: 150px;
     height: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-right: 20px;
 }
 
-.personal-info .photo img {
+.photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 1px solid black;
+    border: 1px solid #fff;
 }
 
-.personal-info .photo input {
+.photo input {
     margin-top: 5px;
     font-size: 12px;
+    color: #000;
+}
+
+.content {
+    flex: 1;
+}
+
+.personal-info p {
+    margin: 5px 0;
 }
 
 .section {
@@ -66,7 +46,7 @@ body {
 
 .section h2 {
     font-size: 18px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #fff;
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
@@ -87,14 +67,18 @@ body {
 [contenteditable="true"] {
     display: inline-block;
     min-width: 50px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
 }
 
 [contenteditable="true"]:hover {
-    background-color: #f0f0f0;
+    background-color: #333;
     cursor: text;
 }
 
 [contenteditable="true"]:empty:before {
     content: attr(placeholder);
-    color: #aaa;
+    color: #888;
 }
